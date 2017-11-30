@@ -1,0 +1,51 @@
+CREATE TABLE IF NOT EXISTS `Rating` (
+	`Mov_id`	NUMBER(3),
+	`Rev_starts`	NUMBER(4),
+	PRIMARY KEY(`Mov_id`)
+);
+INSERT INTO `Rating` VALUES (1001,4);
+INSERT INTO `Rating` VALUES (1002,2);
+INSERT INTO `Rating` VALUES (1003,5);
+INSERT INTO `Rating` VALUES (1004,4);
+CREATE TABLE IF NOT EXISTS `Movies` (
+	`Mov_id`	NUMBER(3),
+	`Mov_Title`	VARCHAR(20),
+	`Mov_Year`	NUMBER(4),
+	`Mov_Lang`	VARCHAR(20),
+	`Dir_id`	NUMBER(4),
+	PRIMARY KEY(`Mov_id`)
+);
+INSERT INTO `Movies` VALUES (1001,'Bahubali-2',2017,'Telagu',60);
+INSERT INTO `Movies` VALUES (1002,'Bahubali-1',2015,'Telagu',60);
+INSERT INTO `Movies` VALUES (1003,'Akash',2008,'Kannada',61);
+INSERT INTO `Movies` VALUES (1004,'War Horse',2011,'English',63);
+CREATE TABLE IF NOT EXISTS `Movie_Cast` (
+	`Act_id`	NUMBER(3),
+	`Mov_id`	NUMBER(3),
+	`Role`	VARCHAR(20),
+	PRIMARY KEY(`Act_id`,`Mov_id`)
+);
+INSERT INTO `Movie_Cast` VALUES (301,1002,'Heroine');
+INSERT INTO `Movie_Cast` VALUES (301,1001,'Heroine');
+INSERT INTO `Movie_Cast` VALUES (303,1003,'Hero');
+INSERT INTO `Movie_Cast` VALUES (303,1002,'Guest');
+INSERT INTO `Movie_Cast` VALUES (304,1004,'Hero');
+CREATE TABLE IF NOT EXISTS `Director` (
+	`Dir_id`	NUMBER(3),
+	`Dir_name`	VARCHAR(20),
+	`Dir_Phone`	NUMBER(10),
+	PRIMARY KEY(`Dir_id`));
+INSERT INTO `Director` VALUES (60,'Rajamouli,8751611001);
+INSERT INTO `Director` VALUES (61,'Hitchcock',7766138911);
+INSERT INTO `Director` VALUES (62,'Faran',9986776531);
+INSERT INTO `Director` VALUES (63,'Steven Spielberg',8989776530);
+CREATE TABLE IF NOT EXISTS `Actor` (
+	`Act_id`	NUMBER(3),
+	`Act_Name`	VARCHAR(20),
+	`Act_gender`	VARCHAR(1),
+	PRIMARY KEY(`Act_id`)
+);
+INSERT INTO `Actor` VALUES (301,'Anushka','F');
+INSERT INTO `Actor` VALUES (302,'Prabhas','M');
+INSERT INTO `Actor` VALUES (303,'Punith','M');
+INSERT INTO `Actor` VALUES (304,'Jermy','M');
